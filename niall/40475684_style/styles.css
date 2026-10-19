@@ -1,0 +1,98 @@
+/* General page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f8f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Main title */
+h1 {
+    background-color: #1b5e20;
+    color: white;
+    padding: 15px;
+    margin: 0;
+}
+
+/* Section headers */
+h2 {
+    color: #1b5e20;
+    margin-top: 20px;
+}
+
+/* Form styling */ 
+form {
+    margin: 20px auto;
+    padding: 15px;
+    width: 300px;
+    background-color: #e8f5e9;
+    border-radius: 8px;
+}
+
+/* Inputs */
+input {
+    width: 90%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Buttons */
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* Button darks darker when hovered over */
+button:hover {
+    background-color: #1b5e20;
+}
+
+/* Table */
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+/* Table header */
+th {
+    background-color: #2e7d32;
+    color: white;
+    padding: 10px;
+}
+
+/* Table cells */
+td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Message text */
+#message {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Delete button */
+.delete-btn {
+    background-color: #c62828;
+}
+/* Delete button turn a darker shade when hovered over */
+.delete-btn:hover {
+    background-color: #8e0000;  
+}
+
+.nav-buttons {
+    margin: 20px 0;
+}
+
+.nav-buttons button {
+    margin: 5px;
+}

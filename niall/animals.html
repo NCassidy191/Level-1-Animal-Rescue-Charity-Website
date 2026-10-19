@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Animal Rescue Manager</title>
+    <link rel="stylesheet" href="40475684_style/styles.css"> <!--Link to CSS file -->
+</head>
+
+<body>
+
+    <!--Title text-->
+    <h1>Animal Rescue Manager</h1>
+
+    <!--These buttons link to the reports page-->
+    <div class="nav-buttons">
+        <button onclick="window.location.href='membersWhoAdoptedAnAnimal.html'">View for members who own an animal
+        </button>
+        <button onclick="window.location.href='searchAnimalsByName.html'">Search for Animals by name </button>
+        <button onclick="window.location.href='viewAnimalAdoptionStatus.html'">View Animals Adoption Status</button>
+        <button onclick="window.location.href='barChart_ApplicationsPerSpecies.html'">View Applications per Species
+        </button>
+        <button onclick="window.location.href='../jamie/index.html'">Return to Main Menu</button>
+    </div>
+    <h2>Add, edit, or delete an Animal page</h2>
+
+
+    <!--Place holder == grey text that comes up on empty fields-->
+    <!--Animal form that the user fills out.-->
+    <form id="animalForm">
+        <input type="text" id="name" placeholder="Name"><br><br>
+        <input type="number" id="age" placeholder="Age"><br><br>
+        <input type="text" id="species" placeholder="Species"><br><br>
+        <input type="text" id="gender" placeholder="Gender"><br><br>
+
+        <button type="submit">Add Animal</button>
+    </form>
+
+    <p id="message"></p>
+    <!--Element that shows messages depending what user does e.g Animal added successfully/Please fill in all required fields-->
+
+    <h2>Animal List</h2>
+    <!--The table for displaying all animal records-->
+    <table border="1" id="animalTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Species</th>
+                <th>Gender</th>
+                <th>actions</th> <!-- For editing and deleting buttons!-->
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="40475684_js/animals.js"></script>
+
+</body>
+
+</html>

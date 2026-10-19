@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Applications per Species</title>
+    <link rel="stylesheet" href="40475684_style/styles.css">
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <h1>Applications per Species</h1>
+
+    <div class="nav-buttons">
+        <button onclick="window.location.href='animals.html'">Back</button>
+    </div>
+
+    <p id="message"></p>
+
+    <!-- Chart canvas -->
+    <div style="width: 500px; height: 300px; margin: auto;">
+        <canvas id="speciesChart"></canvas>
+    </div>
+
+    <script>
+        const runQuery = async (sql) => {
+            try {
+                const response = await fetch("https://jkilleen02.webhosting1.eeecs.qub.ac.uk/dbConnector.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: "query=" + encodeURIComponent(sql)
+                })
+
+                return await response.json();
+            } catch (error) {
+                console.log(error.message);
+            }
+        };
+
+        const loadChart = async () => {
+
+            const sql = "SELECT a.animalSpecies, COUNT(ad.adoptionID) AS totalApplications FROM tblanimal a LEFT JOIN tbladoption ad ON a.animalID = ad.animalID GROUP BY a.animalSpecies ORDER BY totalApplications DESC LIMIT 3;";
+
+            const result = await runQuery(sql);
+            console.log(result);
+
+            if (!result || !result.success || result.data.length === 0) {
+                document.getElementById("message").innerText = "No data available.";
+                return;
+            }
+
+            const labels = [];
+            const data = [];
+
+            result.data.forEach(row => {
+                labels.push(row.animalSpecies);
+                data.push(row.totalApplications);
+            });
+
+            const ctx = document.getElementById('speciesChart').getContext('2d');
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Applications',
+                        data: data
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        window.onload = loadChart;
+    </script>
+
+</body>
+
+</html>
